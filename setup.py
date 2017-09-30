@@ -4,12 +4,12 @@ from distutils.core import setup
 from setuptools import find_packages
 
 
-setup(name='py_lru_cache',
+setup(name='SimpleLRUCache',
       version='0.1.4',
-      description="""LRU cache for python. Provides a dictionary-like object as well as a method decorator.""",
-      author='Chris Stucchio',
-      author_email='stucchio@gmail.com',
+      description="""Simple LRU cache for python. Provides a dictionary-like, forgetful object.""",
+      author='Johannes Buchner, Chris Stucchio',
+      author_email='buchner.johannes@gmx.at',
       license='Dual: GPL v3 or BSD',
-      url='https://github.com/stucchio/Python-LRU-cache',
-      packages = ['lru'],
+      url='https://github.com/JohannesBuchner/SimpleLRUCache',
+      packages = ['simplelru'],
      )
