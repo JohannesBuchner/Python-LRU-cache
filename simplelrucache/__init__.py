@@ -1,10 +1,10 @@
 from collections import OrderedDict
 import time
 
-class LRUCacheDict(object):
+class LRUCache(object):
     """ A dictionary-like object, supporting LRU caching semantics.
 
-    >>> d = LRUCacheDict(max_size=3)
+    >>> d = LRUCache(max_size=3)
     >>> d['a'] = 'A'
     >>> d['b'] = 'B'
     >>> d['c'] = 'C'
@@ -17,8 +17,6 @@ class LRUCacheDict(object):
     """
     def __init__(self, max_size=1024):
         self.max_size = max_size
-        self.expiration = expiration
-
         self.__values = {}
         self.__access_times = OrderedDict()
         self.access_iter = 0
@@ -30,7 +28,7 @@ class LRUCacheDict(object):
         """
         Clears the dict.
 
-        >>> d = LRUCacheDict(max_size=3, expiration=1)
+        >>> d = LRUCache(max_size=3)
         >>> d['foo'] = 'bar'
         >>> d['foo']
         'bar'
@@ -72,10 +70,6 @@ class LRUCacheDict(object):
             for k in self.__access_times:
                 self.__delete__(k)
                 break
-        if not (next_expire is None):
-            return next_expire - t
-        else:
-            return None
 
 
 if __name__ == "__main__":
